@@ -8,15 +8,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #667eea;
-            --secondary: #764ba2;
-            --accent: #f093fb;
-            --success: #4ade80;
-            --warning: #fbbf24;
-            --danger: #ef4444;
-            --info: #3b82f6;
-            --dark: #1e293b;
-            --light: #f8fafc;
+            color-scheme: dark;
+            --bg-primary: #020617;
+            --bg-secondary: rgba(15, 23, 42, 0.98);
+            --bg-card: rgba(15, 23, 42, 0.96);
+            --text-primary: #e5e7eb;
+            --text-secondary: #d1d5db;
+            --text-muted: #9ca3af;
+            --border: rgba(148, 163, 184, 0.55);
+            --border-light: rgba(148, 163, 184, 0.4);
+            --primary-green: #22c55e;
+            --primary-blue: #2563eb;
+            --accent-green: #4ade80;
+            --accent-yellow: #facc15;
+            --accent-orange: #f97316;
+            --accent-light-green: #bbf7d0;
+            --accent-blue: #93c5fd;
         }
         
         * {
@@ -26,11 +33,12 @@
         }
         
         body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: #1e293b;
+            font-family: 'Pretendard', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: radial-gradient(circle at top, #020617 0, #020617 35%, #000 100%);
+            color: var(--text-primary);
             line-height: 1.7;
             padding: 2rem 0;
+            min-height: 100vh;
         }
         
         .container {
@@ -40,52 +48,58 @@
         }
         
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
             padding: 3rem;
             margin-bottom: 2rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
             text-align: center;
+            border: 1px solid var(--border);
         }
         
         .header h1 {
-            font-size: 2.5rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-size: clamp(2rem, 3vw, 2.5rem);
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 1rem;
             font-weight: 800;
+            line-height: 1.2;
         }
         
         .header .subtitle {
-            font-size: 1.2rem;
-            color: #64748b;
+            font-size: clamp(1rem, 1.2vw, 1.2rem);
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
+            line-height: 1.6;
         }
         
         .key-message {
-            background: linear-gradient(135deg, #f093fb 0%, #4facfe 100%);
-            color: white;
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(37, 99, 235, 0.2));
+            border: 2px solid var(--accent-green);
+            color: var(--text-primary);
             padding: 1.5rem;
-            border-radius: 15px;
-            font-size: 1.3rem;
+            border-radius: 16px;
+            font-size: clamp(1.1rem, 1.3vw, 1.3rem);
             font-weight: 600;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 12px 26px rgba(34, 197, 94, 0.45);
         }
         
         .section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
             padding: 3rem;
             margin-bottom: 2rem;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.9);
+            border: 1px solid var(--border);
         }
         
         .section-title {
-            font-size: 2rem;
-            color: #667eea;
+            font-size: clamp(1.8rem, 2.2vw, 2rem);
+            color: var(--accent-green);
             margin-bottom: 2rem;
             font-weight: 700;
             display: flex;
@@ -97,14 +111,14 @@
             content: '';
             width: 5px;
             height: 2rem;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
             border-radius: 10px;
         }
         
         .card {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-            border: 2px solid rgba(102, 126, 234, 0.2);
-            border-radius: 15px;
+            background: rgba(34, 197, 94, 0.08);
+            border: 1px solid var(--border);
+            border-radius: 18px;
             padding: 2rem;
             margin-bottom: 1.5rem;
             transition: all 0.3s ease;
@@ -112,20 +126,32 @@
         
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);
-            border-color: #667eea;
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.3);
+            border-color: var(--accent-green);
+            background: rgba(34, 197, 94, 0.15);
         }
         
         .card h3 {
-            color: #667eea;
-            font-size: 1.5rem;
+            color: var(--accent-green);
+            font-size: clamp(1.3rem, 1.5vw, 1.5rem);
             margin-bottom: 1rem;
             font-weight: 700;
         }
         
+        .card p, .card li {
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+        
+        .card strong {
+            color: var(--accent-yellow);
+            font-weight: 600;
+        }
+        
         .pension-calculator {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(34, 197, 94, 0.2));
+            border: 2px solid var(--accent-blue);
+            color: var(--text-primary);
             border-radius: 20px;
             padding: 3rem;
             margin: 2rem 0;
@@ -147,27 +173,30 @@
             margin-bottom: 0.5rem;
             font-weight: 600;
             font-size: 0.9rem;
-            opacity: 0.9;
+            color: var(--text-secondary);
         }
         
         .form-group input,
         .form-group select {
             padding: 0.75rem;
-            border: none;
+            border: 1px solid var(--border);
             border-radius: 10px;
             font-size: 1rem;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            background: var(--bg-card);
+            color: var(--text-primary);
             backdrop-filter: blur(10px);
         }
         
-        .form-group input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-green);
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
         }
         
         .btn-calculate {
-            background: white;
-            color: #667eea;
+            background: linear-gradient(120deg, var(--accent-green), var(--primary-green));
+            color: #022c22;
             border: none;
             padding: 1rem 2rem;
             border-radius: 50px;
@@ -175,21 +204,22 @@
             font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 12px 26px rgba(34, 197, 94, 0.45);
         }
         
         .btn-calculate:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.6);
         }
         
         .result-box {
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--bg-card);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             padding: 2rem;
             margin-top: 2rem;
             display: none;
+            border: 1px solid var(--border);
         }
         
         .result-box.show {
@@ -206,7 +236,7 @@
             display: flex;
             justify-content: space-between;
             padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid var(--border-light);
         }
         
         .result-item:last-child {
@@ -215,21 +245,28 @@
         
         .result-label {
             font-weight: 600;
+            color: var(--text-secondary);
         }
         
         .result-value {
             font-size: 1.3rem;
             font-weight: 700;
+            color: var(--accent-yellow);
         }
         
         .highlight-box {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: white;
+            background: linear-gradient(135deg, rgba(250, 204, 21, 0.2), rgba(249, 115, 22, 0.2));
+            border: 2px solid var(--accent-yellow);
+            color: var(--text-primary);
             padding: 1.5rem;
             border-radius: 15px;
             margin: 1.5rem 0;
             font-weight: 600;
-            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+            box-shadow: 0 10px 30px rgba(250, 204, 21, 0.3);
+        }
+        
+        .highlight-box strong {
+            color: var(--accent-yellow);
         }
         
         .checklist {
@@ -240,7 +277,8 @@
         .checklist li {
             padding: 1rem;
             margin-bottom: 0.5rem;
-            background: #f8fafc;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
             border-radius: 10px;
             display: flex;
             align-items: center;
@@ -249,7 +287,8 @@
         }
         
         .checklist li:hover {
-            background: #e2e8f0;
+            background: rgba(34, 197, 94, 0.1);
+            border-color: var(--accent-green);
             transform: translateX(5px);
         }
         
@@ -257,6 +296,160 @@
             width: 1.5rem;
             height: 1.5rem;
             cursor: pointer;
+            accent-color: var(--accent-green);
+        }
+        
+        .checklist label {
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.3);
+        }
+        
+        .product-card h4 {
+            color: var(--accent-green);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .product-card .badge {
+            display: inline-block;
+            padding: 0.25rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .badge-tax {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-light-green);
+        }
+        
+        .badge-savings {
+            background: rgba(37, 99, 235, 0.2);
+            border: 1px solid var(--accent-blue);
+            color: var(--accent-blue);
+        }
+        
+        .badge-insurance {
+            background: rgba(250, 204, 21, 0.2);
+            border: 1px solid var(--accent-yellow);
+            color: var(--accent-yellow);
+        }
+        
+        .btn-action {
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-green));
+            color: #022c22;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .btn-action:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(34, 197, 94, 0.4);
+        }
+        
+        .btn-action-blue {
+            background: linear-gradient(135deg, var(--accent-blue), var(--primary-blue));
+            color: white;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-action-blue:hover {
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        #copyNotification {
+            display: none;
+            background: rgba(34, 197, 94, 0.2);
+            border: 2px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        .contact-section {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(34, 197, 94, 0.2));
+            border: 2px solid var(--accent-blue);
+        }
+        
+        .contact-section .section-title {
+            color: var(--accent-blue);
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--border);
+            color: var(--text-primary);
+        }
+        
+        .contact-card h3 {
+            color: var(--accent-blue);
+        }
+        
+        .contact-link {
+            display: inline-block;
+            background: linear-gradient(120deg, var(--accent-green), var(--primary-green));
+            color: #022c22;
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 12px 26px rgba(34, 197, 94, 0.45);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(34, 197, 94, 0.6);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+        }
+        
+        .footer a {
+            color: var(--accent-green);
+            text-decoration: none;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
         }
         
         @media (max-width: 768px) {
@@ -269,6 +462,10 @@
             }
             
             .calculator-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -309,7 +506,7 @@
             <h2 class="section-title">💰 세제적격연금 상세 분석</h2>
             
             <div class="pension-calculator">
-                <h3 style="color: white; margin-bottom: 2rem; font-size: 1.8rem;">연금 수익 계산기</h3>
+                <h3 style="color: var(--accent-blue); margin-bottom: 2rem; font-size: 1.8rem;">연금 수익 계산기</h3>
                 <div class="calculator-form">
                     <div class="form-group">
                         <label>연 불입액 (만원)</label>
@@ -334,7 +531,7 @@
                 <button class="btn-calculate" onclick="calculatePension()">계산하기</button>
                 
                 <div class="result-box" id="resultBox">
-                    <h4 style="margin-bottom: 1.5rem; font-size: 1.5rem;">계산 결과</h4>
+                    <h4 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--accent-green);">계산 결과</h4>
                     <div class="result-item">
                         <span class="result-label">총 불입액</span>
                         <span class="result-value" id="totalPayment">0원</span>
@@ -375,10 +572,117 @@
             </div>
         </div>
 
+        <!-- 다양한 금융 상품 제안 -->
+        <div class="section">
+            <h2 class="section-title">💎 다양한 금융 상품 제안</h2>
+            
+            <div class="product-grid">
+                <!-- 개인형 IRP -->
+                <div class="product-card">
+                    <span class="badge badge-tax">세액공제</span>
+                    <h4>1. 개인형 IRP (퇴직연금)</h4>
+                    <p><strong>목적:</strong> 퇴직연금 통합 관리 + 추가 납입</p>
+                    <p><strong>한도:</strong> 연 600만 원 (세제적격연금과 합산 900만 원)</p>
+                    <p><strong>세액공제:</strong> 12~15%</p>
+                    <p><strong>효과:</strong> 세금 절감 + 노후 자금 확보</p>
+                </div>
+
+                <!-- 연금저축 -->
+                <div class="product-card">
+                    <span class="badge badge-tax">세액공제</span>
+                    <h4>2. 연금저축</h4>
+                    <p><strong>목적:</strong> 추가 연금 저축</p>
+                    <p><strong>한도:</strong> 연 400만 원</p>
+                    <p><strong>세액공제:</strong> 12~15%</p>
+                    <p><strong>효과:</strong> 세제적격연금과 병행 가능</p>
+                </div>
+
+                <!-- 주택청약종합저축 -->
+                <div class="product-card">
+                    <span class="badge badge-savings">비과세</span>
+                    <h4>3. 주택청약종합저축</h4>
+                    <p><strong>목적:</strong> 주택 구매 자금 마련</p>
+                    <p><strong>한도:</strong> 연 240만 원</p>
+                    <p><strong>혜택:</strong> 비과세 이자 + 청약 당첨 기회</p>
+                    <p><strong>효과:</strong> 주택 구매 시 세금 혜택</p>
+                </div>
+
+                <!-- 장기주택마련저축 -->
+                <div class="product-card">
+                    <span class="badge badge-savings">비과세</span>
+                    <h4>4. 장기주택마련저축</h4>
+                    <p><strong>목적:</strong> 주택 구매 자금 저축</p>
+                    <p><strong>한도:</strong> 연 120만 원</p>
+                    <p><strong>혜택:</strong> 비과세 이자</p>
+                    <p><strong>효과:</strong> 5년 이상 저축 시 비과세</p>
+                </div>
+
+                <!-- 실손보험 -->
+                <div class="product-card">
+                    <span class="badge badge-insurance">보장</span>
+                    <h4>5. 실손보험</h4>
+                    <p><strong>목적:</strong> 의료비 보장</p>
+                    <p><strong>보장:</strong> 입원/통원 실비 보장</p>
+                    <p><strong>효과:</strong> 질병/상해 시 의료비 부담 완화</p>
+                    <p><strong>특징:</strong> 가족 모두 가입 가능</p>
+                </div>
+
+                <!-- 상해보험 -->
+                <div class="product-card">
+                    <span class="badge badge-insurance">보장</span>
+                    <h4>6. 상해보험</h4>
+                    <p><strong>목적:</strong> 사고 시 보장</p>
+                    <p><strong>보장:</strong> 사망/후유장해 보장</p>
+                    <p><strong>효과:</strong> 업무 중 사고 대비</p>
+                    <p><strong>특징:</strong> 저렴한 보험료</p>
+                </div>
+
+                <!-- 자녀 교육보험 -->
+                <div class="product-card">
+                    <span class="badge badge-insurance">저축</span>
+                    <h4>7. 자녀 교육보험 (쌍둥이)</h4>
+                    <p><strong>목적:</strong> 쌍둥이 자녀 교육비 준비</p>
+                    <p><strong>보장:</strong> 사망 시 교육비 지급</p>
+                    <p><strong>효과:</strong> 비과세 저축 + 보장</p>
+                    <p><strong>특징:</strong> 2명 동시 가입 가능</p>
+                </div>
+
+                <!-- 배당보험 -->
+                <div class="product-card">
+                    <span class="badge badge-savings">저축</span>
+                    <h4>8. 배당보험</h4>
+                    <p><strong>목적:</strong> 안정적인 자산 형성</p>
+                    <p><strong>특징:</strong> 배당금 지급</p>
+                    <p><strong>효과:</strong> 장기 저축 + 배당 수익</p>
+                    <p><strong>세제:</strong> 만기 시 비과세</p>
+                </div>
+
+                <!-- 변액연금보험 -->
+                <div class="product-card">
+                    <span class="badge badge-savings">투자</span>
+                    <h4>9. 변액연금보험</h4>
+                    <p><strong>목적:</strong> 고수익 노후 자금</p>
+                    <p><strong>특징:</strong> 펀드 투자 연계</p>
+                    <p><strong>효과:</strong> 장기 투자 수익</p>
+                    <p><strong>리스크:</strong> 원금 보장 없음</p>
+                </div>
+
+                <!-- 종합저축 -->
+                <div class="product-card">
+                    <span class="badge badge-savings">저축</span>
+                    <h4>10. 종합저축</h4>
+                    <p><strong>목적:</strong> 유동성 확보</p>
+                    <p><strong>특징:</strong> 언제든 출금 가능</p>
+                    <p><strong>효과:</strong> 비상 자금 마련</p>
+                    <p><strong>세제:</strong> 이자소득세 과세</p>
+                </div>
+            </div>
+        </div>
+
         <!-- 종합 솔루션 -->
         <div class="section">
             <h2 class="section-title">💡 종합 솔루션</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+            <div class="product-grid">
                 <div class="card">
                     <h3>1. 자금 혼재 정리</h3>
                     <p><strong>목적:</strong> 2개 매장 자금 흐름 정리</p>
@@ -392,16 +696,40 @@
                     <p><strong>효과:</strong> 연 72만 원 세액공제</p>
                 </div>
                 <div class="card">
-                    <h3>3. 종신보험</h3>
+                    <h3>3. 개인형 IRP</h3>
+                    <p><strong>목적:</strong> 추가 연금 저축</p>
+                    <p><strong>금액:</strong> 연 300만 원</p>
+                    <p><strong>효과:</strong> 연 36만 원 세액공제</p>
+                </div>
+                <div class="card">
+                    <h3>4. 종신보험</h3>
                     <p><strong>목적:</strong> 가족 보장 + 노후 자금</p>
                     <p><strong>보장:</strong> 쌍둥이 자녀 교육비 준비</p>
                     <p><strong>효과:</strong> 사업주 사망 시 가족 보장</p>
                 </div>
                 <div class="card">
-                    <h3>4. 종업원 복리후생</h3>
+                    <h3>5. 종업원 복리후생</h3>
                     <p><strong>목적:</strong> 알바생 복리후생 + 세금 절감</p>
                     <p><strong>금액:</strong> 연 70만 원 이내</p>
                     <p><strong>효과:</strong> 필요경비 인정 + 세부담 감소</p>
+                </div>
+                <div class="card">
+                    <h3>6. 자녀 교육보험</h3>
+                    <p><strong>목적:</strong> 쌍둥이 교육비 준비</p>
+                    <p><strong>금액:</strong> 월 20만 원 × 2명</p>
+                    <p><strong>효과:</strong> 비과세 저축 + 보장</p>
+                </div>
+                <div class="card">
+                    <h3>7. 실손보험</h3>
+                    <p><strong>목적:</strong> 가족 의료비 보장</p>
+                    <p><strong>보장:</strong> 입원/통원 실비</p>
+                    <p><strong>효과:</strong> 의료비 부담 완화</p>
+                </div>
+                <div class="card">
+                    <h3>8. 화재보험</h3>
+                    <p><strong>목적:</strong> 매장 보장</p>
+                    <p><strong>처리:</strong> 필요경비 인정</p>
+                    <p><strong>효과:</strong> 세금 절감 + 리스크 관리</p>
                 </div>
             </div>
         </div>
@@ -411,28 +739,10 @@
             <h2 class="section-title">📋 실행 체크리스트</h2>
             
             <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; flex-wrap: wrap;">
-                <button onclick="sendSMS()" 
-                        style="background: linear-gradient(135deg, #4ade80, #22c55e); 
-                               color: white; 
-                               border: none; 
-                               padding: 0.75rem 1.5rem; 
-                               border-radius: 50px; 
-                               font-weight: 600; 
-                               cursor: pointer; 
-                               transition: all 0.3s ease;
-                               box-shadow: 0 5px 15px rgba(74, 222, 128, 0.3);">
+                <button onclick="sendSMS()" class="btn-action">
                     📱 문자로 보내기
                 </button>
-                <button onclick="copyChecklist()" 
-                        style="background: linear-gradient(135deg, #3b82f6, #2563eb); 
-                               color: white; 
-                               border: none; 
-                               padding: 0.75rem 1.5rem; 
-                               border-radius: 50px; 
-                               font-weight: 600; 
-                               cursor: pointer; 
-                               transition: all 0.3s ease;
-                               box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);">
+                <button onclick="copyChecklist()" class="btn-action btn-action-blue">
                     📋 내용 복사하기
                 </button>
             </div>
@@ -452,69 +762,64 @@
                 </li>
                 <li>
                     <input type="checkbox" id="check4">
-                    <label for="check4">종신보험 가입 (가족 보장 + 노후 자금)</label>
+                    <label for="check4">개인형 IRP 가입 (연 300만 원)</label>
                 </li>
                 <li>
                     <input type="checkbox" id="check5">
-                    <label for="check5">종업원 복리후생 (연 70만 원 이내 단체보험)</label>
+                    <label for="check5">종신보험 가입 (가족 보장 + 노후 자금)</label>
                 </li>
                 <li>
                     <input type="checkbox" id="check6">
-                    <label for="check6">화재보험 경비처리 (매장 보험)</label>
+                    <label for="check6">종업원 복리후생 (연 70만 원 이내 단체보험)</label>
                 </li>
                 <li>
                     <input type="checkbox" id="check7">
-                    <label for="check7">쌍둥이 자녀 교육비 준비 (저축성보험 비과세)</label>
+                    <label for="check7">화재보험 경비처리 (매장 보험)</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="check8">
+                    <label for="check8">쌍둥이 자녀 교육보험 가입 (월 20만 원 × 2명)</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="check9">
+                    <label for="check9">실손보험 가입 (가족 전체)</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="check10">
+                    <label for="check10">주택청약종합저축 가입 (연 240만 원)</label>
                 </li>
             </ul>
             
-            <div id="copyNotification" style="display: none; 
-                                             background: #4ade80; 
-                                             color: white; 
-                                             padding: 1rem; 
-                                             border-radius: 10px; 
-                                             margin-top: 1rem; 
-                                             text-align: center; 
-                                             font-weight: 600;">
+            <div id="copyNotification">
                 ✅ 클립보드에 복사되었습니다!
             </div>
         </div>
 
         <!-- 상담 신청 섹션 -->
-        <div class="section" style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.95), rgba(118, 75, 162, 0.95)); color: white;">
-            <h2 class="section-title" style="color: white;">📞 세부 상담 신청</h2>
+        <div class="section contact-section">
+            <h2 class="section-title">📞 세부 상담 신청</h2>
             
-            <div class="card" style="background: rgba(255, 255, 255, 0.15); border: 2px solid rgba(255, 255, 255, 0.3); color: white;">
-                <h3 style="color: white; font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center;">
+            <div class="card contact-card">
+                <h3 style="color: var(--accent-blue); font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center;">
                     맞춤형 상담으로 더 나은 재무 설계를 시작하세요
                 </h3>
                 
                 <div style="text-align: center; margin: 2rem 0;">
-                    <a href="tel:01020885383" 
-                       style="display: inline-block; 
-                              background: white; 
-                              color: #667eea; 
-                              padding: 1.5rem 3rem; 
-                              border-radius: 50px; 
-                              font-size: 1.5rem; 
-                              font-weight: 700; 
-                              text-decoration: none; 
-                              box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-                              transition: all 0.3s ease;">
+                    <a href="tel:01020885383" class="contact-link">
                         📞 010-2088-5383
                     </a>
                 </div>
                 
-                <div style="background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 15px; margin-top: 2rem;">
-                    <h4 style="margin-bottom: 1.5rem; font-size: 1.3rem;">상담 안내</h4>
+                <div style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 15px; margin-top: 2rem; border: 1px solid var(--border);">
+                    <h4 style="margin-bottom: 1.5rem; font-size: 1.3rem; color: var(--accent-blue);">상담 안내</h4>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--border-light);">
                             <strong>상담 시간:</strong> 평일 09:00 ~ 18:00 (사전 예약 가능)
                         </li>
-                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--border-light);">
                             <strong>상담 내용:</strong> 2개 매장 운영 현황 분석, 맞춤형 재무 전략 수립
                         </li>
-                        <li style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.2);">
+                        <li style="padding: 0.75rem 0; border-bottom: 1px solid var(--border-light);">
                             <strong>제공 서비스:</strong> 자금 관리, 세무 최적화, 가족 보장 전략 제안
                         </li>
                         <li style="padding: 0.75rem 0;">
@@ -526,15 +831,15 @@
         </div>
 
         <!-- Footer -->
-        <div class="section" style="text-align: center; padding: 2rem;">
-            <p style="color: rgba(255, 255, 255, 0.9); margin: 0.5rem 0;">
+        <div class="footer">
+            <p style="margin: 0.5rem 0;">
                 <strong>작성일:</strong> 2025년 12월 6일
             </p>
-            <p style="color: rgba(255, 255, 255, 0.9); margin: 0.5rem 0;">
+            <p style="margin: 0.5rem 0;">
                 <strong>작성자:</strong> 신대식
             </p>
-            <p style="color: rgba(255, 255, 255, 0.9); margin: 0.5rem 0;">
-                <strong>연락처:</strong> <a href="tel:01020885383" style="color: white; text-decoration: underline;">010-2088-5383</a>
+            <p style="margin: 0.5rem 0;">
+                <strong>연락처:</strong> <a href="tel:01020885383">010-2088-5383</a>
             </p>
         </div>
     </div>
@@ -614,10 +919,13 @@
                 '2개 매장별 사업용 계좌 분리',
                 '자금 혼재 정리 및 사업용 자금 관리',
                 '세제적격연금 가입 (연 600만 원)',
+                '개인형 IRP 가입 (연 300만 원)',
                 '종신보험 가입 (가족 보장 + 노후 자금)',
                 '종업원 복리후생 (연 70만 원 이내 단체보험)',
                 '화재보험 경비처리 (매장 보험)',
-                '쌍둥이 자녀 교육비 준비 (저축성보험 비과세)'
+                '쌍둥이 자녀 교육보험 가입 (월 20만 원 × 2명)',
+                '실손보험 가입 (가족 전체)',
+                '주택청약종합저축 가입 (연 240만 원)'
             ];
             
             return '[커피전문점 재무전략 실행 체크리스트]\n\n' + 
@@ -631,4 +939,3 @@
     </script>
 </body>
 </html>
-
