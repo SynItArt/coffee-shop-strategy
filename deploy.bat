@@ -12,6 +12,7 @@ git init
 echo.
 echo [2/5] 원격 저장소 연결...
 git remote remove origin 2>nul
+git remote remove origin 2>nul
 git remote add origin https://github.com/SynItArt/coffee-shop-strategy.git
 
 echo.
