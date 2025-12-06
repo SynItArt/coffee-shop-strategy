@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>커피전문점 개인사업자 재무전략 - 신대식 컨설팅</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --accent: #f093fb;
+            --success: #4ade80;
+            --warning: #fbbf24;
+            --dark: #1e293b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.7;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header */
+        .main-header {
+            background: #1a202c;
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .main-header h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+        }
+        
+        .main-header h1 a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .main-header .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Hero Section - 내 소개 */
+        .hero-intro {
+            background: linear-gradient(180deg, #0f172a 0%, #1a202c 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero-intro h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: #e2e8f0;
+        }
+        
+        .hero-intro .intro-text {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+        }
+        
+        .profile-card {
+            background: #1a202c;
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem auto;
+            max-width: 700px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .profile-card h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .profile-card .subtitle {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-info {
+            text-align: left;
+            margin-top: 2rem;
+        }
+        
+        .profile-info-item {
+            margin-bottom: 2rem;
+            padding: 0;
+        }
+        
+        .profile-info-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .profile-info-item p {
+            font-size: 1rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+        
+        .profile-link {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .profile-link a {
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-link a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+        
+        /* Case Study Section - 커피전문점 제안서 */
+        .case-study-section {
+            padding: 4rem 0;
+            background: #1e293b;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #e2e8f0;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+        }
+        
+        .case-study-card {
+            background: #1a202c;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 2rem 0;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        
+        .case-study-card h3 {
+            font-size: 2rem;
+            color: #e2e8f0;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .case-study-card .subtitle {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+        
+        .case-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .case-feature {
+            background: #0f172a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .case-feature h4 {
+            color: #e2e8f0;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .case-feature p {
+            color: #cbd5e1;
+        }
+        
+        .btn-case {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-case:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Transition Section */
+        .transition-section {
+            background: #1e293b;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .transition-section h2 {
+            font-size: 2.5rem;
+            color: #e2e8f0;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+        
+        .transition-section p {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .btn-transition {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-transition:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, #764ba2, #667eea);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #0f172a;
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer p {
+            margin: 0.5rem 0;
+            opacity: 0.8;
+            color: #cbd5e1;
+        }
+        
+        .footer a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-intro h2 {
+                font-size: 1.8rem;
+            }
+            
+            .case-study-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1><a href="coffee-shop-main.html">커피전문점 개인사업자 재무전략</a></h1>
+                    <p class="subtitle">신대식 컨설팅</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section - 내 소개 -->
+    <section class="hero-intro">
+        <div class="container">
+            <h2>커피전문점 사장님의 하루가<br>조금 덜 무거워지도록</h2>
+            <p class="intro-text">
+                매일 매장 운영과 가족을 위해 바쁘게 움직이시는 사장님,<br>
+                함께 길을 정리해 드리고 싶은 신대식입니다.
+            </p>
+            
+            <div class="profile-card">
+                <div class="profile-picture">
+                    👤
+                </div>
+                <h3>신대식</h3>
+                <p class="subtitle">Owner Strategy Consultant</p>
+                
+                <div class="profile-info">
+                    <div class="profile-info-item">
+                        <h4>제가 본 현장</h4>
+                        <p>
+                            법무법인·회생/파산 실무, 소방·안전·ESG, 장애·현장 봉사, 
+                            수많은 개인사업자님들의 세금·채무·노후 고민까지. 
+                            "조금만 더 일찍 같이 봤으면 좋았을" 순간들을 많이 목격했습니다.
+                        </p>
+                    </div>
+                    <div class="profile-info-item">
+                        <h4>그래서 하고 싶은 일</h4>
+                        <p>
+                            위기 직전이 아니라 <strong>"아직 괜찮을 때"</strong> 개인사업자님 곁에서 
+                            숫자와 구조를 함께 들여다보고, 마음이 조금 가벼워지는 선택지를 한 장씩 만들어 가는 일입니다.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="profile-link">
+                    <a href="https://synitart.github.io/corporate-strategy/%EF%BD%93%EF%BD%99%EF%BD%8E.html" target="_blank">상세 프로필 보기 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section - 커피전문점 제안서 -->
+    <section class="case-study-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>맞춤형 제안서 사례</h2>
+                <p>실제 개인사업자님을 위해 작성한 종합 제안서입니다</p>
+            </div>
+            
+            <div class="case-study-card">
+                <h3>☕ 커피전문점 개인사업자 재무전략 종합 제안서</h3>
+                <p class="subtitle">
+                    <strong>대상:</strong> 컴포즈 커피전문점 2개 매장 운영 · 쌍둥이 아빠<br>
+                    <strong>주요 관심사:</strong> 자금 관리, 세금 절감, 가족 보장, 노후 준비
+                </p>
+                
+                <p style="font-size: 1.1rem; color: #cbd5e1; margin-bottom: 2rem;">
+                    커피전문점 운영의 특성(인건비, 원재료비, 매장 운영)과 쌍둥이 아빠로서의 가족 보장을 고려한 
+                    <strong>자금 관리</strong>, <strong>세무 최적화</strong>, <strong>리스크 관리</strong>를 통한 
+                    안정적인 사업 운영과 가족 보장을 제안합니다.
+                </p>
+                
+                <div class="case-features">
+                    <div class="case-feature">
+                        <h4>💰 자금 혼재 정리</h4>
+                        <p>2개 매장 운영으로 인한 복잡한 자금 흐름 정리 및 사업용 계좌 분리</p>
+                    </div>
+                    <div class="case-feature">
+                        <h4>📊 세무 최적화</h4>
+                        <p>인건비·원재료비 경비처리 최적화, 종업원 복리후생 전략</p>
+                    </div>
+                    <div class="case-feature">
+                        <h4>🛡️ 가족 보장</h4>
+                        <p>쌍둥이 자녀를 위한 교육비 준비 및 가족 보험 전략</p>
+                    </div>
+                    <div class="case-feature">
+                        <h4>💼 노후 자금 마련</h4>
+                        <p>세제적격연금·종신보험을 활용한 장기 노후 설계</p>
+                    </div>
+                </div>
+                
+                <div style="background: #0f172a; padding: 2rem; border-radius: 15px; margin-top: 2rem; border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <h4 style="color: #e2e8f0; margin-bottom: 1rem; font-size: 1.3rem;">✨ 주요 특징</h4>
+                    <ul style="list-style: none; padding: 0; color: #cbd5e1;">
+                        <li style="padding: 0.5rem 0;">✓ <strong>2개 매장 운영 특화:</strong> 복잡한 자금 흐름 관리 및 세무 처리</li>
+                        <li style="padding: 0.5rem 0;">✓ <strong>인건비 최적화:</strong> 알바생 고용 시 세무 혜택 극대화</li>
+                        <li style="padding: 0.5rem 0;">✓ <strong>가족 보장 전략:</strong> 쌍둥이 자녀 교육비 및 가족 보험 설계</li>
+                        <li style="padding: 0.5rem 0;">✓ <strong>실행 체크리스트:</strong> 단계별 실행 계획 및 문자 전송 기능</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="개인사업자/커피전문점_컴포즈_2매장_쌍둥이아빠_재무전략_제안서.html" class="btn-case">
+                        📄 제안서 전체 보기 →
+                    </a>
+                </div>
+                
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(251, 191, 36, 0.1); border-left: 4px solid #fbbf24; border-radius: 10px; border: 1px solid rgba(251, 191, 36, 0.2);">
+                    <p style="color: #fbbf24; font-size: 0.9rem; line-height: 1.6; margin: 0;">
+                        ⚠️ <strong>주의사항:</strong> 본 제안서에 기재된 금액, 이율, 연금액 등은 가상으로 산출한 예시입니다. 
+                        실제 가입하시는 상품마다 이율, 연금액, 보장 내용 등이 상이할 수 있으므로, 
+                        반드시 전문가와 세부 상담을 거친 후 결정하시기 바랍니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transition Section -->
+    <section class="transition-section">
+        <div class="container">
+            <h2>법인기업 대표자님도 함께 합니다</h2>
+            <p>
+                개인사업자뿐만 아니라 법인기업 대표자님들의 재무전략도 함께 도와드립니다.<br>
+                법인 세무, CEO 소득설계, 가업승계 등 종합적인 컨설팅을 제공합니다.
+            </p>
+            <a href="https://synitart.github.io/corporate-strategy/" class="btn-transition" target="_blank">
+                법인 전략 보기 →
+            </a>
+        </div>
+    </section>
+
+    <!-- Disclaimer Section -->
+    <section class="disclaimer-section" style="background: #0f172a; padding: 3rem 0; border-top: 1px solid rgba(255, 255, 255, 0.1);">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto; padding: 2rem; background: rgba(251, 191, 36, 0.1); border-left: 4px solid #fbbf24; border-radius: 10px; border: 1px solid rgba(251, 191, 36, 0.2);">
+                <h4 style="color: #fbbf24; font-size: 1.1rem; margin-bottom: 1rem; font-weight: 700;">⚠️ 중요 안내사항</h4>
+                <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.8; margin: 0;">
+                    본 웹사이트 및 제안서에 기재된 모든 금액, 이율, 연금액, 세액공제액 등은 <strong style="color: #fbbf24;">가상으로 산출한 예시</strong>입니다. 
+                    실제 가입하시는 상품마다 이율, 연금액, 보장 내용, 수수료 등이 상이할 수 있으며, 
+                    시장 상황 및 법령 변경에 따라 변동될 수 있습니다. 
+                    따라서 반드시 <strong style="color: #e2e8f0;">전문가와 세부 상담을 거친 후</strong> 본인의 상황에 맞는 최적의 상품을 선택하시기 바랍니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p><strong>커피전문점 개인사업자 재무전략 컨설팅</strong> | 신대식</p>
+            <p>📞 상담 문의: <a href="tel:01020885383">010-2088-5383</a></p>
+            <p style="margin-top: 1.5rem; opacity: 0.6;">
+                © SYNDΛESIK · Coffee Shop Owner Strategy · Empathy Strategy 2025
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+
